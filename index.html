@@ -10,6 +10,9 @@
   <div id="root"></div>
 
   <script
+    src="https://unpkg.com/@babel/standalone/babel.min.js"
+  ></script>
+  <script
     crossorigin
     src="https://unpkg.com/react@17/umd/react.development.js"
   ></script>
@@ -17,62 +20,23 @@
     crossorigin
     src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
   ></script>
-  <script>
+  
+  <script type="text/babel">
     const root = document.querySelector('#root');
 
-    // const element = document.createElement('h1');
-    // element.textContent = 'Hello from JS!'
-    // element.className = 'heading-1';
+    // function upcase(text) {
+    //   return text.toUpperCase();
+    // }
 
-    // root.appendChild(element);
-
-    // const p1 = React.createElement('p', {
-    //   children: 'Hello paragraf 1',
-    // });
-
-    // const p2 = React.createElement('p', {
-    //   children: 'Hello paragraf 1',
-    // });
-
-    // // const element = React.createElement('div', {
-    // //   // children: ['Hello', 'JS'],
-    // //   children: [p1, p2],
-    // // });
-  
-    // const element = React.createElement(React.Fragment, {
-    //   children: [p1, p2],
-    // });
-
-    // const li = React.createElement('li', {
-    //   children: 'Apple',
-    // });
-
-    // const li2 = React.createElement('li', {
-    //   children: 'Orange',
-    // });
-
-    // const li3 = React.createElement('li', {
-    //   children: 'Grape',
-    // });
-
-    // // const element = React.createElement('ul', {
-    // //   children: [li, li2, li3],
-    // // });
-
-    // const element = React.createElement('ul', // Tag Name
-    //   { className: 'list' }, // Class Name
-    //   li, // 'Hello', // Content param 3 until last
-    //   li2, // 'JS',
-    //   li3, // 'React'
+    // const name = 'Smith';
+    // const className = 'heading-1';
+    // const element = (
+    //   <h1 className={className}>
+    //     Hello {upcase(name)}
+    //   </h1>
     // );
 
-    const element = React.createElement( // Buat bikin element
-      'ul',
-      { className: 'list' },
-      React.createElement('li', null, 'Apple'),
-      React.createElement('li', null, 'Orange'),
-      React.createElement('li', null, 'Grape'),
-    );
+    // const element = <img src="https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg" />;
 
     ReactDOM.render(element, root); // Render element
   </script>
