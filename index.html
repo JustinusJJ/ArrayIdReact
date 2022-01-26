@@ -24,19 +24,16 @@
   <script type="text/babel">
     const root = document.querySelector('#root');
 
-    // function upcase(text) {
-    //   return text.toUpperCase();
-    // }
+    function Hello(props) {
+      return <p>Hello <b>{props.name}</b></p>
+    }
 
-    // const name = 'Smith';
-    // const className = 'heading-1';
-    // const element = (
-    //   <h1 className={className}>
-    //     Hello {upcase(name)}
-    //   </h1>
-    // );
-
-    const element = <img src="https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg" />;
+    const element = (
+      <>
+        <Hello name="One" />
+        <Hello name="Two" />
+      </>
+    );
 
     ReactDOM.render(element, root); // Render element
   </script>
