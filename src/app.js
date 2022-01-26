@@ -1,22 +1,29 @@
 const root = document.querySelector('#root');
 
-function clickMe(msg) {
-  alert(msg);
-}
-// // Cara 1
-// const element = (
-//   <button onClick={function () {
-//     clickMe('Hello');
-//   }}>
-//     Click Here
-//   </button>
-// );
-  
-// Cara 2
-const element = (
-  <button onClick={clickMe.bind(this, 'Hello Again')}>
-    Click Here
-  </button>
-);
+function App() {
+  // Cara 1
+  // const state = React.useState(0);
+  // const count = state[0];
+  // const updateCount = state[1];
 
-ReactDOM.render(element, root); // Render element
+  // Cara 2
+  const [count, setCount] = React.useState(0);
+  
+  return (
+    <>
+      <button onClick={ function () {
+        setCount(count - 1);
+      }}>
+        -
+      </button>
+      <span>{count}</span>
+      <button onClick={ function () {
+        setCount(count + 1);
+      }}>
+        +
+      </button>
+    </>
+  );
+}
+
+ReactDOM.render(<App />, root);

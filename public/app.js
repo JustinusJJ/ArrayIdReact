@@ -1,19 +1,21 @@
 const root = document.querySelector('#root');
 
-function clickMe(msg) {
-  alert(msg);
-} // // Cara 1
-// const element = (
-//   <button onClick={function () {
-//     clickMe('Hello');
-//   }}>
-//     Click Here
-//   </button>
-// );
-// Cara 2
+function App() {
+  // Cara 1
+  // const state = React.useState(0);
+  // const count = state[0];
+  // const updateCount = state[1];
+  // Cara 2
+  const [count, setCount] = React.useState(0);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      setCount(count - 1);
+    }
+  }, "-"), /*#__PURE__*/React.createElement("span", null, count), /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      setCount(count + 1);
+    }
+  }, "+"));
+}
 
-
-const element = /*#__PURE__*/React.createElement("button", {
-  onClick: clickMe.bind(this, 'Hello Again')
-}, "Click Here");
-ReactDOM.render(element, root); // Render element
+ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);
