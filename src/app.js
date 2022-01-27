@@ -1,44 +1,48 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const [clicked, setClicked] = React.useState(false);
-  const [count, setCount] = React.useState(0);
+  const [login, setLogin] = React.useState(false);
+  
+  // if(login) {
+  //   return (
+  //     <>
+  //       <h1>Logged In!</h1>
+  //       <button
+  //         onClick={function () {
+  //           setLogin(false);
+  //         }}>
+  //           Logout
+  //       </button>
+  //     </>
+  //   );
+  // }
 
-  // // Called every time App() renders
-  // React.useEffect(function () {
-  //   console.log(document.getElementById('title'));
-  // }, [clicked]); // Parameter 2 determines when will useEffect is called, depending on what
-  // // }); // If no parameter 2, then call everytime
-  // // }, []); // Will only be called first time it renders
-  // // Usualy useEffect with empty Array is used for fetching data or fetching library
-
-  React.useEffect(function() {
-    console.log('Init Something');
-
-    return function () {
-      console.log('Destroy Something');
-    };
-  });
+  // return (
+  //   <>
+  //     <h1>Login Please</h1>
+  //     <button
+  //       onClick={function () {
+  //         setLogin(true);
+  //       }}>
+  //         Login
+  //     </button>
+  //   </>
+  // );
 
   return (
-    <>
-      <h1 id="title">Hello this a title</h1>
-      <button onClick={function () {
-        setClicked(true);
-      }}>
-        Click Here
-      </button>
-      <button onClick={function () {
-        setCount(count + 1);
-      }}>
-        Add
-      </button>
-      Current Count : {count}
-    </>
-  );
+      <>
+        <h1>Application</h1>
+        {/* <p>{login ? <b>Logged In</b> : <b>Please Log In</b>}</p> */}
+        {/* <p>{login && <b>Logged In</b>}</p> */}
+        <p>{login == true && <b>Logged In</b>}</p>
+        <button
+          onClick={function () {
+            setLogin(true);
+          }}>
+            Login
+        </button>
+      </>
+    );
 }
 
 ReactDOM.render(<App />, root);
-
-// Might result in null if the rendering is too long
-// console.log(document.getElementById('title'));
