@@ -1,24 +1,28 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const fruits = ['Apple', 'Orange', 'Grape', 'Melon' // 'Apple' // Will result an error because when used as a key.
-  // it's not unique
-  ]; // console.log(
-  //   // use map cause it supports a return
-  //   fruits.map(function (fruit) {
-  //     return <li>(fruit)</li>;
-  //   })
-  // );
+  // const nameRef = React.useRef(null);
+  const [name, setName] = React.useState('Default');
 
-  return (
-    /*#__PURE__*/
-    // needs a unique key
-    React.createElement("ul", null, fruits.map(function (fruit) {
-      return /*#__PURE__*/React.createElement("li", {
-        key: fruit
-      }, fruit);
-    }))
-  );
+  function whenSubmit(event) {
+    event.preventDefault(); // Prevents redirect/render
+    // const name = nameRef.current.value;
+
+    console.log('Nama: ', name);
+  }
+
+  return /*#__PURE__*/React.createElement("form", {
+    onSubmit: whenSubmit
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Nama: "), /*#__PURE__*/React.createElement("input", {
+    type: "text",
+    name: "name",
+    value: name,
+    onChange: function (event) {
+      setName(event.target.value);
+    }
+  })), /*#__PURE__*/React.createElement("button", {
+    type: "submit"
+  }, "Submit"));
 }
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

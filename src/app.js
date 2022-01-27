@@ -1,29 +1,31 @@
 const root = document.querySelector('#root');
 
 function App() {
-  const fruits = [
-    'Apple',
-    'Orange',
-    'Grape',
-    'Melon',
-    // 'Apple' // Will result an error because when used as a key.
-    // it's not unique
-  ]
-  
-  // console.log(
-  //   // use map cause it supports a return
-  //   fruits.map(function (fruit) {
-  //     return <li>(fruit)</li>;
-  //   })
-  // );
+  // const nameRef = React.useRef(null);
+  const [name, setName] = React.useState('Default');
+
+  function whenSubmit(event) {
+    event.preventDefault(); // Prevents redirect/render
+    // const name = nameRef.current.value;
+    console.log('Nama: ', name);
+  }
 
   return (
-    // needs a unique key
-    <ul>
-      {fruits.map(function (fruit) {
-        return <li key={fruit}>{fruit}</li>;
-      })}
-    </ul>
+    <form onSubmit={whenSubmit}>
+      <div>
+        <label>Nama: </label>
+        {/* <input type="text" name="name" ref={nameRef} /> */}
+        <input 
+          type="text"
+          name="name"
+          value={name}
+          onChange={function (event) {
+            setName(event.target.value);
+          }}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
