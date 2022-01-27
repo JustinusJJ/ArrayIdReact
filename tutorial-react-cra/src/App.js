@@ -1,12 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Welcome from './Welcome.js'
+// import Welcome, { WelcomeH2, WelcomeH3 } from './Welcome.js'
+import { WelcomeH2, WelcomeH3 } from './Welcome.js'
 
 function App() {
   return (
     <div className="App">
-      <Welcome />
+      {/* <Welcome /> */}
+      <WelcomeH2 />
+      <WelcomeH3 />
     </div>
   );
 }
