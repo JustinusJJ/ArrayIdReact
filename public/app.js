@@ -1,28 +1,31 @@
 const root = document.querySelector('#root');
 
 function App() {
-  // const nameRef = React.useRef(null);
-  const [name, setName] = React.useState('Default');
+  React.useEffect(function () {
+    // Cara 1
+    // const getData = fetch('https://api.spaceflightnewsapi.net/v3/blogs')
+    //   .then(function(response) {
+    //     // console.log(response);
+    //     // console.log(response.json());
+    //     return response.json();
+    //     //response.JSON -> async
+    //   }).then(function (response) {
+    //     console.log(response);
+    //   }
+    // );
+    // // console.log(getData);
+    // // Promise -> Async, background process, you can do other stuff, no need to wait fetch
+    // Cara 2
+    async function getData() {
+      const request = await fetch('https://api.spaceflightnewsapi.net/v3/blogs'); // console.log(request);
 
-  function whenSubmit(event) {
-    event.preventDefault(); // Prevents redirect/render
-    // const name = nameRef.current.value;
-
-    console.log('Nama: ', name);
-  }
-
-  return /*#__PURE__*/React.createElement("form", {
-    onSubmit: whenSubmit
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Nama: "), /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    name: "name",
-    value: name,
-    onChange: function (event) {
-      setName(event.target.value);
+      const response = await request.json();
+      console.log(response);
     }
-  })), /*#__PURE__*/React.createElement("button", {
-    type: "submit"
-  }, "Submit"));
+
+    getData();
+  }, []);
+  return /*#__PURE__*/React.createElement("h1", null, "Data Fetch");
 }
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);
